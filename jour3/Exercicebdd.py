@@ -1,0 +1,61 @@
+from sqlite3 import *
+connection = connect("GestionFormation.db")
+cursor = connection.cursor()
+#ajout
+new_matiere = (cursor.lastrowid,'java')
+cursor.execute('INSERT INTO Matiere VALUES(?,?)',new_matiere)
+connection.commit()
+new_matiere = (cursor.lastrowid,'python')
+cursor.execute('INSERT INTO Matiere VALUES(?,?)',new_matiere)
+connection.commit()
+new_matiere = (cursor.lastrowid,'CSS')
+cursor.execute('INSERT INTO Matiere VALUES(?,?)',new_matiere)
+connection.commit()
+new_matiere = (cursor.lastrowid,'html')
+cursor.execute('INSERT INTO Matiere VALUES(?,?)',new_matiere)
+connection.commit()
+new_Cursus = (cursor.lastrowid,'Developpeur Java')
+cursor.execute('INSERT INTO Cursus VALUES(?,?)',new_Cursus)
+connection.commit()
+new_Cursus = (cursor.lastrowid,'Developpeur C#')
+cursor.execute('INSERT INTO Cursus VALUES(?,?)',new_Cursus)
+connection.commit()
+
+new_Cursus = (cursor.lastrowid,'Developpeur php')
+cursor.execute('INSERT INTO Cursus VALUES(?,?)',new_Cursus)
+connection.commit()
+
+new_etudiant = (cursor.lastrowid,"toto","tata",25)
+cursor.execute('INSERT INTO etudiant VALUES(?,?,?,?)',new_etudiant)
+connection.commit()
+
+new_etudiant = (cursor.lastrowid,"fafa","fifi",25)
+cursor.execute('INSERT INTO etudiant VALUES(?,?,?,?)',new_etudiant)
+connection.commit()
+
+new_etudiant = (cursor.lastrowid,"sdsd","saaz",25)
+cursor.execute('INSERT INTO etudiant VALUES(?,?,?,?)',new_etudiant)
+connection.commit()
+new_etudiant = (cursor.lastrowid,"tfefe","tdede",25)
+cursor.execute('INSERT INTO etudiant VALUES(?,?,?,?)',new_etudiant)
+connection.commit()
+
+#lister
+cursor.execute('SELECT * FROM Matiere')
+print(cursor.fetchall())
+cursor.execute('SELECT * FROM cursus')
+print(cursor.fetchall())
+cursor.execute('SELECT * FROM etudiant')
+print(cursor.fetchall())
+
+#modifier
+new_matiere=('C#',1)
+cursor.execute('UPDATE Matiere SET nomMatiere=? WHERE idMatiere=?',new_matiere)
+connection.commit()
+new_Cursus=('Devops',1)
+cursor.execute('UPDATE Cursus SET nomCursus=? WHERE idCursus=?',new_matiere)
+connection.commit()
+mon_etudiant=('hugo','lsls',25,1)
+cursor.execute('UPDATE etudiant SET nom=?, prenom=?, age=? WHERE ID=?',mon_etudiant)
+connection.commit()
+
