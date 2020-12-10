@@ -11,5 +11,3 @@ print("resultat addition :{}".format(add(x,y)))
 print("resultat soustraction :{}".format(sous(x,y)))
 print("resultat multiplication :{}".format(mult(x,y)))
 print("resultat division :{}".format(div(x,y)))
-
-

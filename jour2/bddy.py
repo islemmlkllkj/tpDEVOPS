@@ -24,7 +24,7 @@ print(cursor.fetchone())
 mon_etudiant=('modif','djkd',25,1)
 cursor.execute('UPDATE etudiant SET nom=?, prenom=?, age=? WHERE ID=?',mon_etudiant)
 connection.commit()
-"""
+
 mon_etudiant=(3,)
 cursor.execute('SELECT * FROM etudiant WHERE ID=?',mon_etudiant)
 print(cursor.fetchone())
@@ -38,3 +38,4 @@ print(cursor.fetchone())
 #fermeture du bdd
 cursor.close()
 connection.close()
+"""
